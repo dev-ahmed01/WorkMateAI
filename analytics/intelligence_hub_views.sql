@@ -1,0 +1,1 @@
+-- Snowflake SQL definitions for materializing analytics views powering the Manager Intelligence Hub.
