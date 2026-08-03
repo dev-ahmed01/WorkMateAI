@@ -1,4 +1,4 @@
-\"\"\"Audit logging middleware recording state-changing API operations to Snowflake.\"\"\"
+"""Audit logging middleware recording state-changing API operations to Snowflake."""
 
 import json
 import logging
@@ -13,7 +13,7 @@ logger = logging.getLogger("workmate.audit")
 
 
 class AuditLoggingMiddleware(BaseHTTPMiddleware):
-    \"\"\"Middleware writing audit trails to Snowflake AUDIT_LOG for POST, PUT, PATCH, and DELETE operations.\"\"\"
+    """Middleware writing audit trails to Snowflake AUDIT_LOG for POST, PUT, PATCH, and DELETE operations."""
 
     async def dispatch(self, request: Request, call_next: Callable) -> Response:
         response = await call_next(request)
@@ -39,7 +39,7 @@ class AuditLoggingMiddleware(BaseHTTPMiddleware):
             try:
                 # Write directly to Snowflake AUDIT_LOG table using pooled execution
                 with get_db_cursor() as cursor:
-                    query = \"\"\"
+                    query = """
                         INSERT INTO AUDIT_LOG (
                             LOG_ID,
                             USER_ID,
@@ -59,7 +59,7 @@ class AuditLoggingMiddleware(BaseHTTPMiddleware):
                             %s,
                             CURRENT_TIMESTAMP()
                         )
-                    \"\"\"
+                    """
                     cursor.execute(
                         query,
                         (

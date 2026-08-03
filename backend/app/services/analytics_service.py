@@ -1,11 +1,11 @@
-\"\"\"Analytics Service layer executing optimized read-only queries against Snowflake materialized views.\"\"\"
+"""Analytics Service layer executing optimized read-only queries against Snowflake materialized views."""
 
 from typing import Any, Dict, List, Optional
 from app.core.database import get_db_cursor
 
 
 class AnalyticsService:
-    \"\"\"Service handling Manager Intelligence Hub data retrievals.\"\"\"
+    """Service handling Manager Intelligence Hub data retrievals."""
 
     @staticmethod
     def get_sop_usage(department_id: Optional[str] = None) -> List[Dict[str, Any]]:
