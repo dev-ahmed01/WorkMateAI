@@ -1,98 +1,108 @@
-# WorkMate AI Changelog
+# WorkMate AI — Changelog
 
-All notable development progress for WorkMate AI is documented here.
-
----
-
-## Sprint 1 – Configuration Foundation
-
+## Sprint 1 — Configuration
 ### Added
-- Centralized application configuration using Pydantic Settings
-- Environment variable management
-- JWT configuration
+- Centralized configuration module (`app/core/config.py`)
+- Environment management using Pydantic Settings
 - Snowflake configuration
+- JWT configuration
 - Logging configuration
 - CORS configuration
 - n8n configuration
 - Cached settings singleton
 
-### Verification
-- Successfully compiled using:
-  python -m compileall app
+### Verified
+- Configuration loading
+- Environment validation
+- Project compilation
 
 ---
 
-## Sprint 2 – Database Foundation
-
+## Sprint 2 — Database Layer
 ### Added
-- Snowflake connection manager
-- Connection lifecycle management
+- Snowflake database connection manager
+- Connection helper
 - Query execution helper
 - FastAPI database dependency
 - Database health check
-- Graceful connection error handling
+- Graceful connection handling
 - Foundation for Cortex SQL integration
 
-### Verification
-- Configuration loading verified
-- Import tests completed
-- Successfully compiled
+### Verified
+- Import tests
+- Configuration loading
+- Project compilation
 
 ---
 
-## Sprint 3 – FastAPI Application
-
+## Sprint 3 — FastAPI Application
 ### Added
 - FastAPI application factory
-- Startup and shutdown lifecycle
-- Logging configuration
+- Startup & shutdown lifecycle
+- Logging initialization
 - Request timing middleware
+- CORS middleware
 - Root endpoint
 - Health endpoint
-- Swagger documentation
-- ReDoc documentation
+- Swagger & ReDoc
 - API router registration
 
-### Verification
-- Uvicorn startup successful
-- Swagger tested
-- ReDoc tested
-- Root endpoint tested
-- Health endpoint tested
+### Verified
+- Uvicorn startup
+- Root endpoint
+- Health endpoint
+- Swagger
+- ReDoc
+- Project compilation
 
 ---
 
-## Sprint 4 – API Router Aggregation
-
+## Sprint 4 — API Router Aggregation
 ### Added
-- Central API v1 router
-- Modular router aggregation
-- Future-ready API versioning structure
+- API v1 router aggregator
+- Safe router registration
+- Scalable API versioning foundation
 
-### Verification
-- Router successfully mounted
-- Application startup verified
+### Verified
+- Router imports
+- FastAPI startup
+- Project compilation
 
 ---
 
-## Sprint 5 – Security Foundation
-
+## Sprint 5 — Security Foundation
 ### Added
-- Password hashing utilities using bcrypt
+- Password hashing (bcrypt)
 - Password verification
 - JWT access token generation
 - JWT refresh token generation
-- Token decoding and validation
-- Custom security exceptions
-- Issuer validation
-- Required claim validation
+- JWT decoding
+- Token validation
+- Custom token exceptions
 
-### Fixed
-- Resolved bcrypt compatibility issue by pinning a compatible bcrypt version.
+### Verified
+- Password hashing
+- Password verification
+- JWT creation
+- JWT decoding
+- Project compilation
 
-### Verification
-- Password hashing tested
-- Password verification tested
-- JWT generation tested
-- JWT decoding tested
-- Successfully compiled
+---
+
+## Sprint 6 — Authentication Middleware
+### Added
+- Bearer token authentication dependency
+- Optional authentication dependency
+- JWT validation integration
+- Request user context attachment
+- Standardized HTTP 401 authentication responses
+- Authentication logging
+
+### Improved
+- Optional authentication now logs invalid or expired tokens at DEBUG level.
+
+### Verified
+- Middleware compilation
+- FastAPI dependency validation
+- Git review
+- Commit & Push
