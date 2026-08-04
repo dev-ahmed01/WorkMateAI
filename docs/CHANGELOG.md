@@ -1,108 +1,52 @@
-# WorkMate AI — Changelog
+# WorkMate AI Changelog
 
-## Sprint 1 — Configuration
+## Sprint 7 — RBAC Middleware
+
 ### Added
-- Centralized configuration module (`app/core/config.py`)
-- Environment management using Pydantic Settings
-- Snowflake configuration
-- JWT configuration
-- Logging configuration
-- CORS configuration
-- n8n configuration
-- Cached settings singleton
 
-### Verified
-- Configuration loading
-- Environment validation
-- Project compilation
+Implemented:
 
----
+`backend/app/middleware/rbac_middleware.py`
 
-## Sprint 2 — Database Layer
-### Added
-- Snowflake database connection manager
-- Connection helper
-- Query execution helper
-- FastAPI database dependency
-- Database health check
-- Graceful connection handling
-- Foundation for Cortex SQL integration
+Features added:
 
-### Verified
-- Import tests
-- Configuration loading
-- Project compilation
+- Role-Based Access Control (RBAC)
+- Role validation dependency factory
+- Multiple role support
+- Case-insensitive role matching
+- Reusable `has_role()` permission helper
+- Department-level authorization checks
+- Admin department bypass
+- Standardized authorization error responses
 
----
+### Authorization Flow
 
-## Sprint 3 — FastAPI Application
-### Added
-- FastAPI application factory
-- Startup & shutdown lifecycle
-- Logging initialization
-- Request timing middleware
-- CORS middleware
-- Root endpoint
-- Health endpoint
-- Swagger & ReDoc
-- API router registration
+Implemented authorization layer on top of Sprint 6 authentication:
 
-### Verified
-- Uvicorn startup
-- Root endpoint
-- Health endpoint
-- Swagger
-- ReDoc
-- Project compilation
+Authentication:
+- JWT validation
+- User identity extraction
 
----
+Authorization:
+- Role verification
+- Department boundary enforcement
 
-## Sprint 4 — API Router Aggregation
-### Added
-- API v1 router aggregator
-- Safe router registration
-- Scalable API versioning foundation
+### Integration
 
-### Verified
-- Router imports
-- FastAPI startup
-- Project compilation
+Prepared RBAC dependencies for future protected routes:
 
----
+- Knowledge Studio → Admin access
+- WorkMate Copilot → Employee/Manager/Admin access
+- Intelligence Hub → Manager/Admin access
 
-## Sprint 5 — Security Foundation
-### Added
-- Password hashing (bcrypt)
-- Password verification
-- JWT access token generation
-- JWT refresh token generation
-- JWT decoding
-- Token validation
-- Custom token exceptions
+### Verification
 
-### Verified
-- Password hashing
-- Password verification
-- JWT creation
-- JWT decoding
-- Project compilation
+Completed:
 
----
+- Python compilation check
+- Middleware import validation
+- Application startup verification
 
-## Sprint 6 — Authentication Middleware
-### Added
-- Bearer token authentication dependency
-- Optional authentication dependency
-- JWT validation integration
-- Request user context attachment
-- Standardized HTTP 401 authentication responses
-- Authentication logging
+Status:
 
-### Improved
-- Optional authentication now logs invalid or expired tokens at DEBUG level.
-
-### Verified
-- Middleware compilation
-- FastAPI dependency validation
-- Git review
-- Commit & Push
+✅ Sprint 7 Completed
