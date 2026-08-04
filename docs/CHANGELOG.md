@@ -1,75 +1,98 @@
 # WorkMate AI Changelog
 
-## Sprint 1 — Configuration Foundation
-**Date:** 2026-08-04
+All notable development progress for WorkMate AI is documented here.
+
+---
+
+## Sprint 1 – Configuration Foundation
 
 ### Added
-- Implemented `app/core/config.py`
 - Centralized application configuration using Pydantic Settings
-- Environment variable loading
+- Environment variable management
 - JWT configuration
 - Snowflake configuration
-- CORS configuration
 - Logging configuration
+- CORS configuration
+- n8n configuration
+- Cached settings singleton
 
-### Tested
-- `python -m compileall app`
-
-### Git
-- Commit: Sprint 1: Add centralized configuration
+### Verification
+- Successfully compiled using:
+  python -m compileall app
 
 ---
 
-## Sprint 2 — Database Layer
+## Sprint 2 – Database Foundation
 
 ### Added
-- Implemented `app/core/database.py`
 - Snowflake connection manager
-- Database health check
+- Connection lifecycle management
 - Query execution helper
 - FastAPI database dependency
+- Database health check
+- Graceful connection error handling
+- Foundation for Cortex SQL integration
 
-### Tested
-- `python -m compileall app`
-- Import verification
-- Placeholder configuration loading
-
-### Git
-- Commit: Sprint 2: Add Snowflake database layer
+### Verification
+- Configuration loading verified
+- Import tests completed
+- Successfully compiled
 
 ---
 
-## Sprint 3 — FastAPI Application
+## Sprint 3 – FastAPI Application
 
 ### Added
 - FastAPI application factory
+- Startup and shutdown lifecycle
+- Logging configuration
+- Request timing middleware
 - Root endpoint
 - Health endpoint
-- CORS middleware
-- Request timing middleware
-- Swagger & ReDoc
-- Startup logging
+- Swagger documentation
+- ReDoc documentation
+- API router registration
 
-### Tested
-- `python -m compileall app`
-- `uvicorn app.main:app --reload`
-- Verified `/`, `/health`, `/docs`, `/redoc`
-
-### Git
-- Commit: Sprint 3: Initialize FastAPI application
+### Verification
+- Uvicorn startup successful
+- Swagger tested
+- ReDoc tested
+- Root endpoint tested
+- Health endpoint tested
 
 ---
 
-## Sprint 4 — API Router Aggregation
+## Sprint 4 – API Router Aggregation
 
 ### Added
-- API v1 router aggregator
-- Prepared routing for future feature modules
+- Central API v1 router
+- Modular router aggregation
+- Future-ready API versioning structure
 
-### Tested
-- Application startup
-- Router registration
-- Swagger generation
+### Verification
+- Router successfully mounted
+- Application startup verified
 
-### Git
-- Commit: Sprint 4: Add API v1 router aggregation
+---
+
+## Sprint 5 – Security Foundation
+
+### Added
+- Password hashing utilities using bcrypt
+- Password verification
+- JWT access token generation
+- JWT refresh token generation
+- Token decoding and validation
+- Custom security exceptions
+- Issuer validation
+- Required claim validation
+
+### Fixed
+- Resolved bcrypt compatibility issue by pinning a compatible bcrypt version.
+
+### Verification
+- Password hashing tested
+- Password verification tested
+- JWT generation tested
+- JWT decoding tested
+- Successfully compiled
